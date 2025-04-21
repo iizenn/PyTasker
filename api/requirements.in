@@ -1,0 +1,8 @@
+-i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+
+Flask
+Flask-APScheduler
+Flask-SQLAlchemy
+APScheduler
+requests
+waitress
