@@ -4,3 +4,4 @@ flask
 apscheduler
 sqlalchemy
 requests
+waitress

@@ -10,6 +10,7 @@
 Copyright (c) 2025 by iizenn, All Rights Reserved.
 """
 
+from waitress import serve
 from flask import Flask, request, jsonify
 from scheduler import scheduler, run_script, send_request
 from apscheduler.triggers.cron import CronTrigger
@@ -68,4 +69,5 @@ def remove_task(job_id):
 
 if __name__ == "__main__":
     # Flask 服务和调度器共同运行
-    app.run(host="0.0.0.0", port=5000)
+    # app.run(host="0.0.0.0", port=5000)
+    serve(app, host="0.0.0.0", port=5000, threads=4)
