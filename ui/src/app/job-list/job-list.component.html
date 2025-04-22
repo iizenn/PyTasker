@@ -9,25 +9,16 @@
       <tr>
         <th>ID</th>
         <th>Next Run</th>
-        <th>State</th>
+        <th>Func</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let j of jobs">
         <td>{{ j.id }}</td>
+        <td>{{ j.next_run_time }}</td>
+        <td>{{ j.func }}</td>
         <td>
-          {{
-            j.next_run_time !== undefined
-              ? (j.next_run_time * 1000 | date : "medium")
-              : "—"
-          }}
-        </td>
-        <td>
-          <pre>{{ j.job_state }}</pre>
-        </td>
-        <td>
-          <button (click)="edit(j.id)">Edit</button>
           <button (click)="delete(j.id)">Delete</button>
         </td>
       </tr>

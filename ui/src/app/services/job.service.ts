@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { appConfig } from '../app.config';
 
 export interface Cron {
-  second: string;
+  second?: string;
   minute?: string;
   hour?: string;
   day?: string;
@@ -16,11 +16,8 @@ export interface Job {
   id: string;
   func: string;
   args: string[];
-  cron: Cron;
-
-  // 如果你的 list 接口还会返回这些，就保留；否则可以删
-  next_run_time?: number;
-  job_state?: string;
+  cron?: Cron; // 允许 cron 为 undefined
+  next_run_time?: string;
 }
 
 @Injectable({ providedIn: 'root' })

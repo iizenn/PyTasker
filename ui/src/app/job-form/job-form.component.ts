@@ -56,7 +56,11 @@ export class JobFormComponent implements OnInit {
       id: raw.id,
       func: raw.func,
       args: raw.args.split(',').map((a: string) => a.trim()),
-      cron: raw.cron,
+      cron: raw.cron
+        ? Object.fromEntries(
+            Object.entries(raw.cron).filter(([key, value]) => value !== '')
+          )
+        : undefined,
     };
 
     this.jobService.create(payload).subscribe({
