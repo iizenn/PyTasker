@@ -1,0 +1,62 @@
+<div class="job-form">
+  <h2>{{ isEdit ? "Edit Job" : "New Job" }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="id">Job ID</label>
+      <input id="id" formControlName="id" [readonly]="isEdit" />
+    </div>
+
+    <div>
+      <label for="func">Function</label>
+      <select id="func" formControlName="func">
+        <option value="run_script">Run Script</option>
+        <option value="send_request">Send Request</option>
+        <!-- 你可以根据后端支持的函数继续添加 -->
+      </select>
+    </div>
+
+    <div>
+      <label for="args">Arguments (comma-separated)</label>
+      <input
+        id="args"
+        formControlName="args"
+        placeholder="e.g., /path/to/script.py"
+      />
+    </div>
+
+    <fieldset formGroupName="cron">
+      <legend>Cron Schedule</legend>
+      <div>
+        <label for="second">Second</label>
+        <input id="second" formControlName="second" />
+      </div>
+      <div>
+        <label for="minute">Minute</label>
+        <input id="minute" formControlName="minute" />
+      </div>
+      <div>
+        <label for="hour">Hour</label>
+        <input id="hour" formControlName="hour" />
+      </div>
+      <div>
+        <label for="day">Day</label>
+        <input id="day" formControlName="day" />
+      </div>
+      <div>
+        <label for="month">Month</label>
+        <input id="month" formControlName="month" />
+      </div>
+      <div>
+        <label for="day_of_week">Day of Week</label>
+        <input id="day_of_week" formControlName="day_of_week" />
+      </div>
+    </fieldset>
+
+    <div *ngIf="error" class="error">{{ error }}</div>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? "Saving…" : "Save Job" }}
+    </button>
+  </form>
+</div>

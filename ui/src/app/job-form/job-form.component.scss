@@ -1,0 +1,33 @@
+.job-form {
+  max-width: 600px;
+  margin: 0 auto;
+
+  label {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  fieldset {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .error {
+    color: red;
+    margin-top: 1rem;
+  }
+
+  button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+  }
+}

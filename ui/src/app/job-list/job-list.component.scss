@@ -1,0 +1,26 @@
+.job-list {
+  h2 {
+    margin-bottom: 1rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      max-width: 300px;
+      overflow: auto;
+    }
+  }
+
+  button {
+    margin-right: 0.5rem;
+  }
+}

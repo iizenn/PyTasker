@@ -1,0 +1,38 @@
+<div class="job-list">
+  <h2>Scheduled Jobs</h2>
+  <button (click)="editNew()">＋ New Job</button>
+  <div *ngIf="loading">Loading…</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <table *ngIf="!loading && jobs.length">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Next Run</th>
+        <th>State</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let j of jobs">
+        <td>{{ j.id }}</td>
+        <td>
+          {{
+            j.next_run_time !== undefined
+              ? (j.next_run_time * 1000 | date : "medium")
+              : "—"
+          }}
+        </td>
+        <td>
+          <pre>{{ j.job_state }}</pre>
+        </td>
+        <td>
+          <button (click)="edit(j.id)">Edit</button>
+          <button (click)="delete(j.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && !jobs.length">No jobs scheduled.</div>
+</div>
