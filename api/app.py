@@ -38,6 +38,7 @@ for name in ("apscheduler.scheduler", "apscheduler.executors.default", "apschedu
 
 from flask import Flask, request, jsonify
 from flask_apscheduler import APScheduler
+from flask_cors import CORS
 from waitress import serve
 from apscheduler.triggers.cron import CronTrigger
 
@@ -48,6 +49,7 @@ from app.config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
+CORS(app)
 
 # 初始化数据库与调度器
 db.init_app(app)
@@ -107,5 +109,6 @@ if __name__ == "__main__":
     # 首次运行时创建表
     with app.app_context():
         db.create_all()
-    # 使用 waitress 部署
-    serve(app, host="0.0.0.0", port=5000, threads=4)
+    # # 使用 waitress 部署
+    # serve(app, host="0.0.0.0", port=5000, threads=4)
+    app.run(debug=True, port=5000, host="0.0.0.0")

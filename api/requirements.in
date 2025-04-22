@@ -3,6 +3,7 @@
 Flask
 Flask-APScheduler
 Flask-SQLAlchemy
+Flask-cors
 APScheduler
 requests
 waitress
