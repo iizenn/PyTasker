@@ -20,17 +20,20 @@ def test():
 from injector import inject
 from dataclasses import dataclass
 from libs.utils import get_project_route
+from handlers import TaskHandler
 
 
 @inject
 @dataclass
 class TaskRouter:
 
+    task_handler: TaskHandler
+
     def __post_init__(self):
         self.bp = Blueprint("task", __name__, url_prefix=get_project_route() + "/task")
 
-        self.bp.add_url_rule("/", "list_task", test)
-        self.bp.add_url_rule("/", "create_task", test, methods=["POST"])
+        self.bp.add_url_rule("/", "list_task", self.task_handler.list_task)
+        self.bp.add_url_rule("/", "create_task", self.task_handler.create_task, methods=["POST"])
 
         self.bp.add_url_rule("/<int:id>", "get_task", test)
         self.bp.add_url_rule("/<int:id>", "update_task", test, methods=["POST"])

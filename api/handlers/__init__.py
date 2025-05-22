@@ -3,15 +3,13 @@
 """
 @Author  :   iizenn
 @Contact :   332886770@qq.com
-@Time    :   2025-05-22 11:06:53
-@File    :   ext_database.py
+@Time    :   2025-05-22 14:30:58
+@File    :   __init__.py
 @Desc    :
 
 Copyright (c) 2025 by iizenn, All Rights Reserved.
 """
 
+from .task_handler import TaskHandler
 
-from libs.sqlalchemy import SQLAlchemy
-
-
-db = SQLAlchemy()
+__all__ = ["TaskHandler"]
