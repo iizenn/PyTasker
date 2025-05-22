@@ -39,7 +39,6 @@ class TaskHandler:
         task_args = data.get("task_args", [])
         trigger_type = data.get("trigger_type")
         trigger_args = data.get("trigger_args", {})
-        print(id, name, task_type, task_args, trigger_type, trigger_args, sep="\n")
 
         func = task_funcs.get(task_type)
         if not func:
@@ -52,3 +51,11 @@ class TaskHandler:
             return jsonify({"error": str(e)}), 500
 
         return jsonify({"status": "added", "job_id": id}), 200
+
+    def delete_task(self, id: int):
+        print(id)
+        try:
+            scheduler.remove_job(id)
+        except Exception as e:
+            return jsonify({"error": str(e)}), 404
+        return jsonify({"status": "removed", "job_id": id})

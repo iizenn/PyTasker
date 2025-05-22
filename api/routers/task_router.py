@@ -37,7 +37,7 @@ class TaskRouter:
         self.bp.add_url_rule("/<int:id>", "get_task", test)
         self.bp.add_url_rule("/<int:id>", "update_task", test, methods=["POST"])
 
-        self.bp.add_url_rule("/<int:id>/delete", "delete_task", test, methods=["POST"])
+        self.bp.add_url_rule("/<int:id>/delete", "delete_task", self.task_handler.delete_task, methods=["POST"])
 
         self.bp.add_url_rule("/<int:id>/enable", "enable_task", test, methods=["POST"])
         self.bp.add_url_rule("/<int:id>/disable", "disable_task", test, methods=["POST"])

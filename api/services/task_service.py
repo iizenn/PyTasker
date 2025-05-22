@@ -24,7 +24,6 @@ class TaskService:
     def list_task(self):
         jobs = []
         for job in scheduler.get_jobs():
-            print(job)
             jobs.append(
                 {
                     "id": job.id,
