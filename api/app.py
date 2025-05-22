@@ -35,8 +35,6 @@ def initialize_extensions(app: PyTasker):
     from extensions.ext_migrate import migrate
     from extensions.ext_database import db
 
-    scheduler.init_app(app)
-    scheduler.start()
     db.init_app(app)
     migrate.init_app(app, db, directory="api/migration")
 
@@ -46,6 +44,12 @@ def initialize_extensions(app: PyTasker):
         except OSError:
             pass
         db.create_all()
+
+    scheduler.init_app(app)
+    scheduler.start()
+    with app.app_context():
+        from core.scheduler import reload_tasks
+        scheduler.add_job(func=reload_tasks, trigger="interval", id="reload_tasks", seconds=60, replace_existing=True)
 
 
 def create_app():

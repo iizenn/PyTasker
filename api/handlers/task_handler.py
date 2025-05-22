@@ -14,6 +14,7 @@ from injector import inject
 from dataclasses import dataclass
 from libs.response import success_json, validate_error_json
 from services import TaskService
+from flask import request, jsonify, abort
 
 
 @inject
@@ -26,4 +27,6 @@ class TaskHandler:
         return success_json(resp)
 
     def create_task(self):
-        return success_json([])
+        data = request.get_json(force=True)
+        task = self.task_service.create_task(data)
+        return jsonify(task), 201
