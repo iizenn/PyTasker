@@ -10,6 +10,6 @@ conda activate py312_pytasker
 
 # pip
 pip install pip-tools
-pip-compile requirements.in
-pip-sync requirements.txt
+pip-compile requirements.in --no-strip-extras
+pip-sync requirements.txt 
 ```

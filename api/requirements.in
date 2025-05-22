@@ -1,8 +1,17 @@
 -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
-Flask
-Flask-APScheduler
-Flask-SQLAlchemy
-APScheduler
+injector # 依赖注入
+python-dotenv # dotenv加载.env文件
+
+flask # Flask基础框架
+flask-cors # Flask 跨域
+flask-wtf # Flask Form
+flask_migrate
+flask-apscheduler
+flask-sqlalchemy
+apscheduler
+marshmallow
+
+rich # 美化打印
 requests
 waitress
