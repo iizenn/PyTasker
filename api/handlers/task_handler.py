@@ -19,7 +19,7 @@ from flask import Flask, request, jsonify
 from apscheduler.triggers.cron import CronTrigger
 from core.scheduler import task_funcs
 
-from extensions.ext_APScheduler import scheduler
+from extensions.ext_apscheduler import scheduler
 
 
 @inject

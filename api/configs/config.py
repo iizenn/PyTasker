@@ -28,7 +28,7 @@ class Config:
     # APScheduler 配置
     SCHEDULER_API_ENABLED = True
     SCHEDULER_JOB_DEFAULTS = {"coalesce": False, "max_instances": 1}
-    # SCHEDULER_EXECUTORS = {"default": {"class": "apscheduler.executors.pool:ThreadPoolExecutor", "max_workers": 10}}
+    SCHEDULER_EXECUTORS = {"default": {"type": "threadpool", "max_workers": 30}}
     SCHEDULER_JOBSTORES = {"default": {"type": "sqlalchemy", "url": get_database_uri()}}
 
     # 数据库配置（Flask-SQLAlchemy）

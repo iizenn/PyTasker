@@ -11,5 +11,6 @@ Copyright (c) 2025 by iizenn, All Rights Reserved.
 """
 
 from flask_apscheduler import APScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
 
-scheduler = APScheduler()
+scheduler = APScheduler(scheduler=BackgroundScheduler(daemon=True))

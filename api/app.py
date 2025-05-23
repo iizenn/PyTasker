@@ -13,7 +13,7 @@ Copyright (c) 2025 by iizenn, All Rights Reserved.
 from pytasker import PyTasker
 from configs.config import Config
 from extensions.ext_database import db
-from extensions.ext_APScheduler import scheduler
+from extensions.ext_apscheduler import scheduler
 from extensions.ext_router import init_app as init_router
 from models import *
 

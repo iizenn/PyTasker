@@ -14,7 +14,7 @@ Copyright (c) 2025 by iizenn, All Rights Reserved.
 from injector import inject
 from dataclasses import dataclass
 
-from extensions.ext_APScheduler import scheduler
+from extensions.ext_apscheduler import scheduler
 
 
 @inject
